@@ -32,7 +32,7 @@ public class TestQueue {
             queue.enqueue(i);
         }
 
-       // Assert.assertEquals(new Integer(4), queue.dequeue());
+        Assert.assertEquals(new Integer(4), queue.dequeue());
         Assert.assertEquals("0 1 2 3",queue.print());
     }
 }
