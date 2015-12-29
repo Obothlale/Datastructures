@@ -1,10 +1,11 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays;
+package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays.doubly;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * Created by Obothlale on 2015-10-01.
+ *
  */
 public class TestSparse2D {
 
@@ -17,16 +18,19 @@ public class TestSparse2D {
 
         sparse2D.insert(0, 0, 1);
         Assert.assertEquals("1", sparse2D.print());
+        Assert.assertEquals("1", sparse2D.printReverse());
 
         sparse2D.insert(0, 1, 2);
         Assert.assertEquals("1 2", sparse2D.print());
+        Assert.assertEquals("2 1", sparse2D.printReverse());
 
         sparse2D.insert(1, 0, 3);
         Assert.assertEquals("1 2 3", sparse2D.print());
+        Assert.assertEquals("3 2 1", sparse2D.printReverse());
 
         sparse2D.insert(1, 1, 4);
         Assert.assertEquals("1 2 3 4", sparse2D.print());
-
+        Assert.assertEquals("4 3 2 1", sparse2D.printReverse());
     }
 
     @Test
@@ -36,15 +40,19 @@ public class TestSparse2D {
 
         sparse2D.insert(1, 1, 4);
         Assert.assertEquals("4", sparse2D.print());
+        Assert.assertEquals("4", sparse2D.printReverse());
 
         sparse2D.insert(0, 1, 2);
         Assert.assertEquals("2 4", sparse2D.print());
+        Assert.assertEquals("4 2", sparse2D.printReverse());
 
         sparse2D.insert(1, 0, 3);
         Assert.assertEquals("2 3 4", sparse2D.print());
+        Assert.assertEquals("4 3 2", sparse2D.printReverse());
 
         sparse2D.insert(0, 0, 1);
         Assert.assertEquals("1 2 3 4", sparse2D.print());
+        Assert.assertEquals("4 3 2 1", sparse2D.printReverse());
 
         sparse2D = new Sparse2D<Integer>(5);
 
@@ -55,6 +63,7 @@ public class TestSparse2D {
         sparse2D.insert(3, 0, 6);
         sparse2D.insert(0, 0, 1);
         Assert.assertEquals("1 2 4 6 3 5", sparse2D.print());
+        Assert.assertEquals("5 3 6 4 2 1", sparse2D.printReverse());
 
     }
 
@@ -69,7 +78,7 @@ public class TestSparse2D {
             }
         }
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25", sparse2D.print());
-
+        Assert.assertEquals("25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
     }
 
     @Test
@@ -83,6 +92,7 @@ public class TestSparse2D {
             }
         }
         Assert.assertEquals("1 2 3 4 5 6", sparse2D.print());
+        Assert.assertEquals("6 5 4 3 2 1", sparse2D.printReverse());
     }
 
     @Test
@@ -91,22 +101,27 @@ public class TestSparse2D {
 
         sparse2D.insert(1, 1, 4);
         Assert.assertEquals("4", sparse2D.print());
+        Assert.assertEquals("4", sparse2D.printReverse());
 
         sparse2D.insert(0, 1, 2);
         Assert.assertEquals("2 4", sparse2D.print());
+        Assert.assertEquals("4 2", sparse2D.printReverse());
 
         sparse2D.insert(1, 0, 3);
         Assert.assertEquals("2 3 4", sparse2D.print());
+        Assert.assertEquals("4 3 2", sparse2D.printReverse());
 
         sparse2D.insert(0, 0, 1);
         Assert.assertEquals("1 2 3 4", sparse2D.print());
-
+        Assert.assertEquals("4 3 2 1", sparse2D.printReverse());
 
         sparse2D.insert(1, 2, 5);
         Assert.assertEquals("1 2 3 4 5", sparse2D.print());
+        Assert.assertEquals("5 4 3 2 1", sparse2D.printReverse());
 
         sparse2D.insert(1, 2, 6);
         Assert.assertEquals("1 2 3 4 6", sparse2D.print());
+        Assert.assertEquals("6 4 3 2 1", sparse2D.printReverse());
     }
 
     @Test
@@ -123,30 +138,39 @@ public class TestSparse2D {
 
         Assert.assertEquals(new Integer(1), sparse2D.delete(0, 0));
         Assert.assertEquals("2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25", sparse2D.print());
+        Assert.assertEquals("25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(25), sparse2D.delete(4, 4));
         Assert.assertEquals("2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(13), sparse2D.delete(2, 2));
         Assert.assertEquals("2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 16 15 14 12 11 10 9 8 7 6 5 4 3 2", sparse2D.printReverse());
 
         sparse2D.insert(0, 0, 1);
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 16 15 14 12 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(12), sparse2D.delete(2, 1));
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 14 15 16 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 16 15 14 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(14), sparse2D.delete(2, 3));
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 15 16 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 16 15 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(15), sparse2D.delete(2, 4));
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 16 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 16 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(16), sparse2D.delete(3, 0));
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 17 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 17 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
 
         Assert.assertEquals(new Integer(17), sparse2D.delete(3, 1));
         Assert.assertEquals("1 2 3 4 5 6 7 8 9 10 11 18 19 20 21 22 23 24", sparse2D.print());
+        Assert.assertEquals("24 23 22 21 20 19 18 11 10 9 8 7 6 5 4 3 2 1", sparse2D.printReverse());
 
     }
 

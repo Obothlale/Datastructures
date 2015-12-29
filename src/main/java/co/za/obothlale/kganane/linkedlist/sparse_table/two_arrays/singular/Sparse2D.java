@@ -1,7 +1,8 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays;
+package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays.singular;
 
 /**
  * Created by Obothlale on 2015-09-24.
+ *
  */
 public class Sparse2D<T extends Comparable<? super T>> {
 
@@ -179,8 +180,8 @@ public class Sparse2D<T extends Comparable<? super T>> {
 
     public String print() {
         String result = "";
-        for (int rowIndex = 0; rowIndex < arrayRow.length; rowIndex++) {
-            for (Node<T> colNode = arrayRow[rowIndex]; colNode != null; colNode = colNode.nextX) {
+        for (Node<T> rowNode : arrayRow) {
+            for (Node<T> colNode = rowNode; colNode != null; colNode = colNode.nextX) {
                 result += colNode.data + " ";
             }
         }

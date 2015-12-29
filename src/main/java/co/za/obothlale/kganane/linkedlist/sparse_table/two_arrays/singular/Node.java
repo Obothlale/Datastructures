@@ -1,7 +1,8 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays;
+package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays.singular;
 
 /**
  * Created by Obothlale on 2015-09-24.
+ *
  */
 public class Node<T extends Comparable<? super T>> {
 
