@@ -1,4 +1,4 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.two_arrays.doubly;
+package co.za.obothlale.kganane.linkedlist.sparse_table.using_arrays.doubly;
 
 import org.junit.Assert;
 import org.junit.Test;

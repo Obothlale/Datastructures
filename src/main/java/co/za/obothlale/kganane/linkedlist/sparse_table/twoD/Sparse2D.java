@@ -1,65 +1,77 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.second_dimensional;
+package co.za.obothlale.kganane.linkedlist.sparse_table.twoD;
 
 /**
  * Created by Obothlale on 2015-07-14.
+ *
  */
 public class Sparse2D<T extends Comparable<? super T>> {
 
-    private Node<T> headRow, tailRow;
-    private Node<T> headCol, tailCol;
+    private Node<T> rowHead;
+    private Node<T> rowTail;
+    private Node<T> headCol;
+    private Node<T> colTail;
     private int headRowSize, headColSize;
 
 
-    public Sparse2D() {
+    public Sparse2D(int size) {
+        this(size, size);
     }
 
     public Sparse2D(int rowSize, int colSize) {
 
-        initializeRow(rowSize);
-
-        initializeCol(colSize);
-
-    }
-
-    public void initializeRow(int rowSize) {
         if (rowSize > 0) {
-            if (headRow == null) {
+            if (rowHead == null) {
 
-                headRow = tailRow = new Node<T>();
+                rowHead = rowTail = new Node<T>();
+
+                rowHead.y = 0;
 
                 headRowSize++;
             }
             for (int index = 1; index < rowSize; index++) {
 
-                tailRow.nextY = new Node<T>();
+                Node<T> node = new Node<T>();
 
-                tailRow = tailRow.nextY;
+                node.x = index;
+
+                rowTail.nextY = node;
+
+                node.prevY = rowTail;
+
+                rowTail = node;
 
                 headRowSize++;
             }
 
         }
-    }
 
-    public void initializeCol(int colSize) {
         if (colSize > 0) {
 
             if (headCol == null) {
 
-                headCol = tailCol = new Node<T>();
+                headCol = colTail = new Node<T>();
+
+                headCol.x = 0;
 
                 headColSize++;
             }
             for (int index = 1; index < colSize; index++) {
 
-                tailCol.nextX = new Node<T>();
+                Node<T> node = new Node<T>();
 
-                tailCol = tailCol.nextX;
+                node.x = index;
+
+                colTail.nextX = node;
+
+                node.prevX = colTail;
+
+                colTail = node;
 
                 headColSize++;
             }
 
         }
+
     }
 
     public int getRowSize() {
