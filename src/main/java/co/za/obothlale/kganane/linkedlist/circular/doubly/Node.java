@@ -9,6 +9,7 @@ public class Node<T extends Comparable<? super T>> {
     protected T data;
     protected Node<T> next;
     protected Node<T> prev;
+    private String testingGit;
 
     public Node(T data){
         this(data,null,null);
