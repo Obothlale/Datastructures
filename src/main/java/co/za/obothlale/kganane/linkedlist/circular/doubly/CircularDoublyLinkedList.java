@@ -80,31 +80,6 @@ public class CircularDoublyLinkedList<T extends Comparable<? super T>> {
         return size;
     }
 
-    protected void delete(T data) {
-        if (!isEmpty()) {
-
-            Node<T> tmp = head;
-            for (; tmp.next != head && !tmp.data.equals(data); ) {
-                tmp = tmp.next;
-            }
-
-            if(head == head.prev && head == head.next && data.equals(head.data)){
-                head = null;
-                size--;
-            }else if(data.equals(tmp.data)){
-                tmp.prev.next = tmp.next;
-                tmp.next.prev = tmp.prev;
-
-                if(head == tmp){
-                    head = tmp.next;
-                }
-                size--;
-            }
-
-        }
-
-    }
-
     protected void insert(int index, T data) throws CircularLinkedListOutOfBounds {
         if (!isEmpty()) {
 
@@ -152,19 +127,6 @@ public class CircularDoublyLinkedList<T extends Comparable<? super T>> {
         return tmp;
     }
 
-    public T deleteFromTail() {
-        T data = null;
-        try {
-            if(!isEmpty()) {
-                data = get(size - 1);
-                delete(data);
-            }
-        } catch (CircularLinkedListOutOfBounds circularLinkedListOutOfBounds) {
-            circularLinkedListOutOfBounds.printStackTrace();
-        }
-        return data;
-    }
-
     public T getHead() {
         return head.data;
     }
@@ -173,11 +135,43 @@ public class CircularDoublyLinkedList<T extends Comparable<? super T>> {
         return head.prev.data;
     }
 
+    protected void delete(T data) {
+        if (!isEmpty()) {
+
+            Node<T> tmp = head;
+            for (; tmp.next != head && !tmp.data.equals(data); ) {
+                tmp = tmp.next;
+            }
+
+            if(head == head.prev && head == head.next && data.equals(head.data)){
+                head = null;
+                size--;
+            }else if(data.equals(tmp.data)){
+                tmp.prev.next = tmp.next;
+                tmp.next.prev = tmp.prev;
+
+                if(head == tmp){
+                    head = tmp.next;
+                }
+                size--;
+            }
+
+        }
+    }
+
     public T deleteFromHead() {
+        return delete(0);
+    }
+
+    public T deleteFromTail() {
+        return delete(size - 1);
+    }
+
+    private T delete(int index) {
         T data= null;
         try {
             if(!isEmpty()){
-                data = get(0);
+                data = get(index);
                 delete(data);
             }
         } catch (CircularLinkedListOutOfBounds circularLinkedListOutOfBounds) {
