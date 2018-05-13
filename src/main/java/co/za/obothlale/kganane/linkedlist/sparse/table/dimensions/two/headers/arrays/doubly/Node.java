@@ -1,7 +1,7 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.twoD;
+package co.za.obothlale.kganane.linkedlist.sparse.table.dimensions.two.headers.arrays.doubly;
 
 /**
- * Created by Obothlale on 2015-07-14.
+ * Created by Obothlale on 2015-09-24.
  *
  */
 public class Node<T extends Comparable<? super T>> {
@@ -14,16 +14,19 @@ public class Node<T extends Comparable<? super T>> {
     protected int x;
     protected int y;
 
-    public Node(){
-        this(null,null,null,null,null);
+    public Node() {
+
+        this(null, null, null, null, null);
     }
 
     public Node(T data) {
-        this(data, null, null,null,null);
+
+        this(data, null, null, null, null);
     }
 
-    public Node(Node<T> nextX,Node<T> prevX, Node<T> nextY,Node<T> prevY) {
-        this(null,nextX,prevX,nextY,prevY);
+    public Node(Node<T> nextX, Node<T> prevX, Node<T> nextY, Node<T> prevY) {
+
+        this(null, nextX, prevX, nextY, prevY);
     }
 
     public Node(T data, Node<T> nextX, Node<T> prevX, Node<T> nextY, Node<T> prevY) {
@@ -34,7 +37,7 @@ public class Node<T extends Comparable<? super T>> {
         this.prevY = prevY;
     }
 
-    public void setCoordinates(int x,int y){
+    public void setCoordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }

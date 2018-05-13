@@ -1,4 +1,4 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.using_arrays.doubly;
+package co.za.obothlale.kganane.linkedlist.sparse.table.dimensions.two.headers.arrays.doubly;
 
 /**
  * Created by Obothlale on 2015-09-24.

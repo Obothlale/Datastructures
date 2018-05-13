@@ -1,4 +1,4 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.twoD;
+package co.za.obothlale.kganane.linkedlist.sparse.table.dimensions.two.headers.nodes.singular;
 
 /**
  * Created by Obothlale on 2015-07-14.

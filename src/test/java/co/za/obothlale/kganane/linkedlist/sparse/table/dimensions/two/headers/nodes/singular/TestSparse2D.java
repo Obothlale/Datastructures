@@ -1,4 +1,4 @@
-package co.za.obothlale.kganane.linkedlist.sparse_table.twoD;
+package co.za.obothlale.kganane.linkedlist.sparse.table.dimensions.two.headers.nodes.singular;
 
 import junit.framework.Assert;
 import org.junit.Test;
