@@ -13,6 +13,7 @@ public class Node<T extends Comparable<? super T>> {
     protected Node<T> prevY;
     protected int x;
     protected int y;
+    protected int remove_variabele;
 
     public Node() {
 
