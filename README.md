@@ -1,1 +1,1 @@
-# Datastructures and Algorithms in Java
+# Datastructures and algorithms in java
